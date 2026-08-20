@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sangram Saste | Animator & Creative Professional</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CSS VARIABLES & THEMES
+           ========================================================================== */
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #161922;
+            --bg-card: #1f2330;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #ff4d4d;
+            --accent-hover: #ff6666;
+            --border-color: #2e3447;
+            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --nav-height: 70px;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent: #e11d48;
+            --accent-hover: #f43f5e;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* ==========================================================================
+           2. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding-bottom: 70px;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 901px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            scroll-margin-top: var(--nav-height);
+            padding: 5rem 1.5rem;
+            min-height: calc(100vh - var(--nav-height));
+            display: flex;
+            align-items: center;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           3. NAVBAR & HAMBURGER MENU
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: rgba(15, 17, 23, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] .navbar {
+            background-color: rgba(248, 250, 252, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            z-index: 1001;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1001;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        #theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        #theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* ==========================================================================
+           4. HERO SECTION
+           ========================================================================== */
+        .hero-section {
+            padding-top: calc(var(--nav-height) + 2rem);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        /* Hero Image Frame */
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 280px;
+            height: 360px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            z-index: 2;
+            background: var(--bg-card);
+            box-shadow: var(--shadow);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #student-img{
+            height: 80vh;
+            
+        }
+
+        .graphic-shape {
+            position: absolute;
+            border-radius: 20px;
+            z-index: 1;
+        }
+
+
+        .shape-1 {
+            width: 280px;
+            height: 360px;
+            border: 2px solid var(--accent);
+            top: 12px;
+            right: 12px;
+        }
+
+        /* ==========================================================================
+           5. SECTION STYLES & CARDS
+           ========================================================================== */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            white-space: nowrap;
+        }
+
+        .section-header h2 span {
+            color: var(--accent);
+        }
+
+        .header-line {
+            height: 1px;
+            width: 100%;
+            background-color: var(--border-color);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            max-width: 800px;
+        }
+
+        .languages-box {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+        }
+
+        .languages-box h4 {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .lang-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .software-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .software-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .software-logo {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* Portfolio Gallery Section */
+        .portfolio-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-top: -1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-media {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: #000;
+        }
+
+        .portfolio-media img, 
+        .portfolio-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-details {
+            padding: 1.2rem;
+        }
+
+        .category-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--accent);
+            color: #ffffff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .portfolio-details h3 {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-details p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2.05rem;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .time-period {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin: 0.2rem 0;
+        }
+
+        .timeline-content h4 {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-info-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: var(--transition);
+            text-align: left;
+            flex: 1 1 250px;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+        }
+
+        .contact-item i {
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item strong {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Mobile Bottom Nav Bar */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 17, 23, 0.95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 0.6rem 0;
+            justify-content: space-around;
+        }
+
+        [data-theme="light"] .mobile-bottom-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            gap: 0.2rem;
+            font-weight: 600;
+        }
+
+        .mobile-nav-item i {
+            font-size: 1.2rem;
+        }
+
+        .mobile-nav-item.active, .mobile-nav-item:hover {
+            color: var(--accent);
+        }
+
+        /* ==========================================================================
+           6. RESPONSIVE MOBILE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 900px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - var(--nav-height));
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.nav-active {
+                left: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            .mobile-bottom-nav {
+                display: flex;
+            }
+
+            section {
+                padding: 4rem 1.25rem;
+                min-height: auto;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                margin: 0 auto 1.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .shape-1 {
+                right: 0px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">SANGRAM<span>.</span></a>
+            
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#skills" class="nav-item">Skills</a></li>
+                <li><a href="#portfolio" class="nav-item">Portfolio</a></li>
+                <li><a href="#education" class="nav-item">Education</a></li>
+                <li><a href="#contact" class="nav-item">Contact</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+        <div class="section-container hero-container">
+            <div class="hero-content">
+                <span class="badge"><i class="fa-solid fa-clapperboard"></i> 3D & 2D Creative Professional</span>
+                <h1>Crafting Stories Through <span class="highlight">Motion & Visuals</span></h1>
+                <p>Third-year Animation student specializing in 3D modeling, story development, video editing, and filmmaking.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View Gallery <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                
+                
+                    <!-- STUDENT PROFILE IMAGE -->
+                    <img src="portfolio photo.png" alt="Sangram Saste" id="student-img">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2><span>01.</span> About Me</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a passionate animation student pursuing my Bachelor's degree at PVG College of Science and Commerce, Pune.</p>
+                    <p>My creative interests span 2D/3D software workflows, character animation, scriptwriting, and filmmaking. I thrive at combining creative storytelling with technical design to bring visual concepts to life.</p>
+                    
+                    <div class="languages-box">
+                        <h4><i class="fa-solid fa-language"></i> Languages Known</h4>
+                        <div class="lang-tags">
+                            <span class="tag">English</span>
+                            <span class="tag">Hindi</span>
+                            <span class="tag">Marathi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="skills-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2><span>02.</span> Software & Skills</h2>
+                <div class="header-line"></div>
+            </div>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-cube"></i></div>
+                    <h3>3D Animation & Modeling</h3>
+                    <div class="software-list">
+                        <div class="software-item">
+                            <i class="fa-solid fa-cube software-logo"></i>
+                            <span>Autodesk Maya</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fa-solid fa-draw-polygon software-logo"></i>
+                            <span>Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h3>Design & Compositing</h3>
+                    <div class="software-list">
+                        <div class="software-item">
+                            <i class="fa-solid fa-image software-logo"></i>
+                            <span>Adobe Photoshop</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fa-solid fa-bezier-curve software-logo"></i>
+                            <span>Adobe Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-film"></i></div>
+                    <h3>Filmmaking & Storytelling</h3>
+                    <div class="software-list">
+                        <div class="software-item">
+                            <i class="fa-solid fa-pen-nib software-logo"></i>
+                            <span>Story Writing & Scripting</span>
+                        </div>
+                        <div class="software-item">
+                            <i class="fa-solid fa-video software-logo"></i>
+                            <span>Video Editing & Acting</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO GALLERY SECTION -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2><span>03.</span> Portfolio Gallery</h2>
+                <div class="header-line"></div>
+            </div>
+            
+            <p class="section-subtitle">Showcase of 3D renders, digital graphics, and short film projects.</p>
+
+            <div class="portfolio-grid">
+                
+                <!-- PORTFOLIO ITEM 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="gun.jpeg" alt="3D Render View">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">3D Render</span>
+                        <h3>Maya Render View</h3>
+                        <p>High quality 3D scene render and lighting setup.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO ITEM 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="045_Saste_Sangram_Assign1_Solidview_01v.jpg" alt="3D Solid View">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">3D Modeling</span>
+                        <h3>Solid View Assignment</h3>
+                        <p>Topology and solid wireframe structural model.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO ITEM 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="car.jpeg" alt="3D Lighting Render">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">3D Art</span>
+                        <h3>Character / Scene Shading</h3>
+                        <p>Material texturing, camera angle, and scene lighting.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO ITEM 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="3d and 2d animation post.png" alt="3D and 2D Animation Post">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Graphic Design</span>
+                        <h3>3D & 2D Animation Post</h3>
+                        <p>Creative poster composition for animation concept.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO ITEM 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="7iconix post.png" alt="7iconix Post">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Branding Post</span>
+                        <h3>7iconix Creative Design</h3>
+                        <p>Social media design and digital visual layout.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO ITEM 6 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="buliding post 01.jpg" alt="Building Post">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Architectural Art</span>
+                        <h3>Building Visualization Post</h3>
+                        <p>Architectural exterior render and design composition.</p>
+                    </div>
+                </div>
+
+                <!-- post -->
+                 <!-- PORTFOLIO ITEM 6 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="framebox.jpeg" alt="Building Post">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Graphic Design post</span>
+                        <h3>Promotional Design Post</h3>
+                        <p>Photoshop compositing and typography composition.</p>
+                    </div>
+                </div>
+
+                 <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="tingre.jpeg" alt="Building Post">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Real Estate post</span>
+                        <h3>Promotional Design Post</h3>
+                        <p>Photoshop compositing and typography composition.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO ITEM 7 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="Pramod comback post.jpg" alt="Pramod Comeback Post">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Poster Design</span>
+                        <h3>Promotional Design Post</h3>
+                        <p>Photoshop compositing and typography composition.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO VIDEO ITEM 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <video controls preload="metadata">
+                            <source src="stopmotion.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Short Film</span>
+                        <h3>THE BENCH - Final Output</h3>
+                        <p>Complete stop motion animation film story direction, creation and cinematic editing.</p>
+                    </div>
+                </div>
+
+                <!-- PORTFOLIO VIDEO ITEM 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <video controls preload="metadata">
+                            <source src="fiveshortstorytelling.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">Filmmaking</span>
+                        <h3>5 Short Storytelling Clips</h3>
+                        <p>Sequence of narrative storytelling clips and video edits.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="education-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2><span>04.</span> Education</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="time-period">Pursuing (3rd Year)</span>
+                        <h3>BSc in Animation</h3>
+                        <h4>PVG College of Science and Commerce, Pune</h4>
+                        <p>Focusing on 3D animation pipelines, composite editing, and filmmaking techniques.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="time-period">Completed — 67.00%</span>
+                        <h3>12th (HSC) - Science (PCM)</h3>
+                        <h4>Sarhad College of Arts, Science and Commerce, Pune</h4>
+                        <p>Higher Secondary Certificate examination.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="time-period">Completed — 83.60%</span>
+                        <h3>10th (SSC)</h3>
+                        <h4>Pride English School, Pune</h4>
+                        <p>Secondary School Certificate examination.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="contact-card">
+                <h2>Get In Touch</h2>
+                <p>Open for creative projects, video editing, and 3D modeling opportunities.</p>
+                
+                <div class="contact-info-grid">
+                    <a href="mailto:sastesangram3@gmail.com" class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span>Email Me</span>
+                            <strong>sastesangram3@gmail.com</strong>
+                        </div>
+                    </a>
+                    <a href="tel:9975168083" class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <span>Call / WhatsApp</span>
+                            <strong>+91 9975168083</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Sangram Saste. All rights reserved.</p>
+            <p><i class="fa-solid fa-location-dot"></i> Pune, Maharashtra</p>
+        </div>
+    </footer>
+
+    <!-- APP-LIKE MOBILE BOTTOM BAR -->
+    <div class="mobile-bottom-nav">
+        <a href="#hero" class="mobile-nav-item active"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="#about" class="mobile-nav-item"><i class="fa-solid fa-user"></i>About</a>
+        <a href="#skills" class="mobile-nav-item"><i class="fa-solid fa-gear"></i>Skills</a>
+        <a href="#portfolio" class="mobile-nav-item"><i class="fa-solid fa-images"></i>Work</a>
+        <a href="#contact" class="mobile-nav-item"><i class="fa-solid fa-phone"></i>Contact</a>
+    </div>
+
+    <!-- INLINE JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = themeToggleBtn.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                }
+            }
+
+            // Mobile Hamburger Menu Logic
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const navMenu = document.getElementById('nav-menu');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            function toggleMenu() {
+                hamburgerBtn.classList.toggle('open');
+                navMenu.classList.toggle('nav-active');
+            }
+
+            hamburgerBtn.addEventListener('click', toggleMenu);
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navMenu.classList.contains('nav-active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Mobile Bottom Nav Active States
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+            mobileNavItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    mobileNavItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
