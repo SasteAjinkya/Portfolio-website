@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <style>
         /* ==========================================================================
            1. CSS VARIABLES & THEMES
@@ -22,7 +25,7 @@
             --accent: #ff4d4d;
             --accent-hover: #ff6666;
             --border-color: #2e3447;
-            --shadow: 0 10px 30px rgba(0,0,0,0.3);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             --font-heading: 'Space Grotesk', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -38,7 +41,7 @@
             --accent: #e11d48;
             --accent-hover: #f43f5e;
             --border-color: #e2e8f0;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         /* ==========================================================================
@@ -71,7 +74,10 @@
             }
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-heading);
             letter-spacing: -0.02em;
         }
@@ -155,7 +161,8 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--accent);
         }
 
@@ -312,9 +319,10 @@
             height: 100%;
             object-fit: cover;
         }
-        #student-img{
+
+        #student-img {
             height: 80vh;
-            
+
         }
 
         .graphic-shape {
@@ -484,9 +492,10 @@
             width: 100%;
             height: 240px;
             background: #000;
+            cursor: pointer;
         }
 
-        .portfolio-media img, 
+        .portfolio-media img,
         .portfolio-media video {
             width: 100%;
             height: 100%;
@@ -517,6 +526,45 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
             margin-top: 0.3rem;
+        }
+
+        /* Fullscreen Lightbox / Gallery View */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+            transition: transform 0.2s;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+            color: var(--accent);
         }
 
         /* Education Timeline */
@@ -687,7 +735,8 @@
             font-size: 1.2rem;
         }
 
-        .mobile-nav-item.active, .mobile-nav-item:hover {
+        .mobile-nav-item.active,
+        .mobile-nav-item:hover {
             color: var(--accent);
         }
 
@@ -760,13 +809,14 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- TOP NAVIGATION BAR -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">SANGRAM<span>.</span></a>
-            
+
             <ul class="nav-links" id="nav-menu">
                 <li><a href="#about" class="nav-item">About</a></li>
                 <li><a href="#skills" class="nav-item">Skills</a></li>
@@ -794,18 +844,20 @@
             <div class="hero-content">
                 <span class="badge"><i class="fa-solid fa-clapperboard"></i> 3D & 2D Creative Professional</span>
                 <h1>Crafting Stories Through <span class="highlight">Motion & Visuals</span></h1>
-                <p>Third-year Animation student specializing in 3D modeling, story development, video editing, and filmmaking.</p>
+                <p>Third-year Animation student specializing in 3D modeling, story development, video editing, and
+                    filmmaking.</p>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View Gallery <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#portfolio" class="btn btn-primary">View Gallery <i
+                            class="fa-solid fa-arrow-right"></i></a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
-                
-                
-                    <!-- STUDENT PROFILE IMAGE -->
-                    <img src="portfolio photo.png" alt="Sangram Saste" id="student-img">
-                
+
+
+                <!-- STUDENT PROFILE IMAGE -->
+                <img src="portfolio photo.png" alt="Sangram Saste" id="student-img">
+
             </div>
         </div>
     </section>
@@ -819,9 +871,12 @@
             </div>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I am a passionate animation student pursuing my Bachelor's degree at PVG College of Science and Commerce, Pune.</p>
-                    <p>My creative interests span 2D/3D software workflows, character animation, scriptwriting, and filmmaking. I thrive at combining creative storytelling with technical design to bring visual concepts to life.</p>
-                    
+                    <p>I am a passionate animation student pursuing my Bachelor's degree at PVG College of Science and
+                        Commerce, Pune.</p>
+                    <p>My creative interests span 2D/3D software workflows, character animation, scriptwriting, and
+                        filmmaking. I thrive at combining creative storytelling with technical design to bring visual
+                        concepts to life.</p>
+
                     <div class="languages-box">
                         <h4><i class="fa-solid fa-language"></i> Languages Known</h4>
                         <div class="lang-tags">
@@ -843,7 +898,7 @@
                 <div class="header-line"></div>
             </div>
             <div class="skills-grid">
-                
+
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fa-solid fa-cube"></i></div>
                     <h3>3D Animation & Modeling</h3>
@@ -900,11 +955,11 @@
                 <h2><span>03.</span> Portfolio Gallery</h2>
                 <div class="header-line"></div>
             </div>
-            
+
             <p class="section-subtitle">Showcase of 3D renders, digital graphics, and short film projects.</p>
 
             <div class="portfolio-grid">
-                
+
                 <!-- PORTFOLIO ITEM 1 -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
@@ -941,6 +996,17 @@
                     </div>
                 </div>
 
+                <div class="portfolio-card">
+                    <div class="portfolio-media">
+                        <img src="mayahall.jpeg" alt="3D Lighting Render">
+                    </div>
+                    <div class="portfolio-details">
+                        <span class="category-badge">3D Art</span>
+                        <h3>Hall scene</h3>
+                        <p>Material texturing, camera angle, and scene lighting.</p>
+                    </div>
+                </div>
+
                 <!-- PORTFOLIO ITEM 4 -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
@@ -953,65 +1019,42 @@
                     </div>
                 </div>
 
-                <!-- PORTFOLIO ITEM 5 -->
+                
+
                 <div class="portfolio-card">
                     <div class="portfolio-media">
-                        <img src="7iconix post.png" alt="7iconix Post">
+                        <img src="game_environment.jpeg" alt="Building Post">
                     </div>
                     <div class="portfolio-details">
-                        <span class="category-badge">Branding Post</span>
-                        <h3>7iconix Creative Design</h3>
-                        <p>Social media design and digital visual layout.</p>
+                        <span class="category-badge">Sketch</span>
+                        <h3>Game environment Sketch</h3>
+                        <p>Hand drawing (Sketch)</p>
                     </div>
                 </div>
 
-                <!-- PORTFOLIO ITEM 6 -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
-                        <img src="buliding post 01.jpg" alt="Building Post">
+                        <img src="perspective design.jpeg" alt="Building Post">
                     </div>
                     <div class="portfolio-details">
-                        <span class="category-badge">Architectural Art</span>
-                        <h3>Building Visualization Post</h3>
-                        <p>Architectural exterior render and design composition.</p>
+                        <span class="category-badge">Sketch</span>
+                        <h3> buliding Sketch</h3>
+                        <p>Hand drawing (Sketch)</p>
                     </div>
                 </div>
 
-                <!-- post -->
-                 <!-- PORTFOLIO ITEM 6 -->
                 <div class="portfolio-card">
                     <div class="portfolio-media">
-                        <img src="framebox.jpeg" alt="Building Post">
+                        <img src="propsdesign.jpeg" alt="Building Post">
                     </div>
                     <div class="portfolio-details">
-                        <span class="category-badge">Graphic Design post</span>
-                        <h3>Promotional Design Post</h3>
-                        <p>Photoshop compositing and typography composition.</p>
+                        <span class="category-badge">Sketch</span>
+                        <h3>props design Sketch</h3>
+                        <p>Hand drawing (Sketch)</p>
                     </div>
                 </div>
 
-                 <div class="portfolio-card">
-                    <div class="portfolio-media">
-                        <img src="tingre.jpeg" alt="Building Post">
-                    </div>
-                    <div class="portfolio-details">
-                        <span class="category-badge">Real Estate post</span>
-                        <h3>Promotional Design Post</h3>
-                        <p>Photoshop compositing and typography composition.</p>
-                    </div>
-                </div>
-
-                <!-- PORTFOLIO ITEM 7 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-media">
-                        <img src="Pramod comback post.jpg" alt="Pramod Comeback Post">
-                    </div>
-                    <div class="portfolio-details">
-                        <span class="category-badge">Poster Design</span>
-                        <h3>Promotional Design Post</h3>
-                        <p>Photoshop compositing and typography composition.</p>
-                    </div>
-                </div>
+                
 
                 <!-- PORTFOLIO VIDEO ITEM 1 -->
                 <div class="portfolio-card">
@@ -1047,6 +1090,12 @@
         </div>
     </section>
 
+    <!-- LIGHTBOX OVERLAY FOR GALLERY VIEW -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <div id="lightbox-container"></div>
+    </div>
+
     <!-- EDUCATION SECTION -->
     <section id="education" class="education-section">
         <div class="section-container">
@@ -1056,7 +1105,7 @@
             </div>
 
             <div class="timeline">
-                
+
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -1097,7 +1146,7 @@
             <div class="contact-card">
                 <h2>Get In Touch</h2>
                 <p>Open for creative projects, video editing, and 3D modeling opportunities.</p>
-                
+
                 <div class="contact-info-grid">
                     <a href="mailto:sastesangram3@gmail.com" class="contact-item">
                         <i class="fa-solid fa-envelope"></i>
@@ -1141,7 +1190,7 @@
             // Theme Toggle Logic
             const themeToggleBtn = document.getElementById('theme-toggle');
             const themeIcon = themeToggleBtn.querySelector('i');
-            
+
             const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.setAttribute('data-theme', savedTheme);
             updateThemeIcon(savedTheme);
@@ -1149,7 +1198,7 @@
             themeToggleBtn.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
+
                 document.documentElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
                 updateThemeIcon(newTheme);
@@ -1186,12 +1235,51 @@
             // Mobile Bottom Nav Active States
             const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
             mobileNavItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     mobileNavItems.forEach(nav => nav.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
+
+            // Lightbox Gallery Modal Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContainer = document.getElementById('lightbox-container');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const mediaItems = document.querySelectorAll('.portfolio-media img, .portfolio-media video');
+
+            mediaItems.forEach(media => {
+                media.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    lightboxContainer.innerHTML = '';
+                    
+                    if (media.tagName.toLowerCase() === 'img') {
+                        const img = document.createElement('img');
+                        img.src = media.src;
+                        img.className = 'lightbox-content';
+                        lightboxContainer.appendChild(img);
+                    } else if (media.tagName.toLowerCase() === 'video') {
+                        const video = document.createElement('video');
+                        video.src = media.querySelector('source').src;
+                        video.className = 'lightbox-content';
+                        video.controls = true;
+                        video.autoplay = true;
+                        lightboxContainer.appendChild(video);
+                    }
+
+                    lightbox.style.display = 'flex';
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.style.display = 'none';
+                lightboxContainer.innerHTML = '';
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', closeLightbox);
+            lightboxContainer.addEventListener('click', (e) => e.stopPropagation());
         });
     </script>
 </body>
+
 </html>
